@@ -1,0 +1,17 @@
+#!/bin/sh
+# Before every commit: gofmt the staged Go files, then go vet and go test.
+# Enable once per clone: git config core.hooksPath .githooks
+set -e
+
+command -v go >/dev/null || { echo "pre-commit: go not found, install Go first"; exit 1; }
+
+# Nothing Go-related staged, nothing to check.
+git diff --cached --quiet -- '*.go' go.mod go.sum && exit 0
+
+# ponytail: re-adds whole files, so partially staged files get fully staged
+git diff --cached --name-only --diff-filter=ACM -- '*.go' | while read -r f; do
+	gofmt -w "$f" && git add "$f"
+done
+
+go vet ./...
+go test ./...

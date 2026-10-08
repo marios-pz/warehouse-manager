@@ -31,3 +31,7 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Typst output and assignment spec (never commit)
+**/main.pdf
+**/Απαλλακτική*ΠΑΛ*.pdf
