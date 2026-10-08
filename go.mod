@@ -1,4 +1,4 @@
-module github.com/marios-pz/warehouse-manager-go
+module github.com/marios-pz/warehouse-manager
 
 go 1.27.1
 

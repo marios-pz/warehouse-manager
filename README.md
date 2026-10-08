@@ -1,4 +1,4 @@
-# warehouse-manager-go
+# warehouse-manager
 
 Εργασία στο μάθημα Ποιότητα και Αξιοπιστία Λογισμικού ΧΕΙΜ-2026
 
