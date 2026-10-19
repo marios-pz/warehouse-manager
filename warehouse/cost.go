@@ -7,7 +7,6 @@ func round2(x float64) float64 {
 }
 
 func CalculateCost(p Product) (priceWithSupplyAndTaxes, discount, finalPrice float64) {
-	// Kane comment out autes tis grammes an theleis na kaneis reproduce to BUG-CALC-01
 	if p.Price < 0 || p.Discount < 0 || p.Discount > 100 {
 		return 0, 0, 0
 	}

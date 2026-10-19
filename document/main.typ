@@ -349,7 +349,8 @@ static κλάσης στη C\#. Τα διακεκομμένα βέλη δείχ�
     ],
     [
       Επιστρέφουμε (0, 0, 0). Η υπογραφή δεν έχει τρόπο να επιστρέψει
-      σφάλμα, και η εφαρμογή απορρίπτει τέτοιες τιμές κατά την καταχώρηση.
+      σφάλμα. Ο έλεγχος γίνεται μόνο στη βιβλιοθήκη, ώστε να καλύπτεται από
+      τους ελέγχους μονάδας, και η εφαρμογή εμφανίζει μηδενικές τιμές.
     ],
 
     [Π3],
@@ -845,6 +846,7 @@ barcode απορρίπτεται ως «Λάθος check digit». Το εξωτ�
   expected: [true, κενό μήνυμα],
   actual: [false, «Λάθος check digit»],
   red: "assets/bug-bc-01-red.png",
+  app: "assets/bug-bc-01-app.png",
   green: "assets/bug-bc-01-green.png",
 )
 
@@ -883,6 +885,7 @@ barcode απορρίπτεται ως «Λάθος check digit». Το εξωτ�
   expected: ["Unknown" και για τα τρία barcodes],
   actual: ["Γαλλία" για το 030, "Γερμανία" για τα 381 και 399],
   red: "assets/bug-fc-01-red.png",
+  app: "assets/bug-fc-01-app.png",
   green: "assets/bug-fc-01-green.png",
 )
 
@@ -913,6 +916,7 @@ barcode απορρίπτεται ως «Λάθος check digit». Το εξωτ�
     την τιμή χωρίς έκπτωση
   ],
   red: "assets/bug-calc-01-red.png",
+  app: "assets/bug-calc-01-app.png",
   green: "assets/bug-calc-01-green.png",
 )
 
