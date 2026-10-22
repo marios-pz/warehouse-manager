@@ -30,6 +30,20 @@ func parseOrder(text string) ([]warehouse.OrderItem, error) {
 	return items, nil
 }
 
+func missingBarcodes(items []warehouse.OrderItem) []string {
+	known := make(map[string]bool, len(products))
+	for _, p := range products {
+		known[p.Barcode] = true
+	}
+	var missing []string
+	for _, item := range items {
+		if !known[item.Barcode] {
+			missing = append(missing, item.Barcode)
+		}
+	}
+	return missing
+}
+
 func orderTab() fyne.CanvasObject {
 	lines := widget.NewMultiLineEntry()
 	lines.SetPlaceHolder("Μία γραμμή ανά προϊόν: barcode ποσότητα\nπ.χ. 5201234567894 3")
@@ -43,7 +57,11 @@ func orderTab() fyne.CanvasObject {
 			return
 		}
 		cost, status := warehouse.CalculateOrder(products, items)
-		result.SetText(fmt.Sprintf("Κατάσταση: %s\nΚόστος: %.2f €", status, cost))
+		text := fmt.Sprintf("Κατάσταση: %s\nΚόστος: %.2f €", status, cost)
+		if missing := missingBarcodes(items); len(missing) > 0 {
+			text += "\nΔεν υπάρχουν στην αποθήκη: " + strings.Join(missing, ", ")
+		}
+		result.SetText(text)
 	})
 
 	return container.NewVBox(lines, submit, result)
