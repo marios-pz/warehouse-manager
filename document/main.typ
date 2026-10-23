@@ -1316,7 +1316,7 @@ barcode απορρίπτεται ως «Λάθος check digit». Το εξωτ�
     σύγκριση για ελληνικούς χαρακτήρες («ελλάδα» έναντι «Ελλάδα»).
   ],
   failure: [
-    `country_products_test.go:109: CountryProducts() =` \
+    `country_products_test.go:109: CountryProducts =` \
     `got [], want [{5201234567894 Ελλάδα ...} {5209876543210   Ελλάδα   ...}]`
   ],
   expected: [Slice με τα 2 προϊόντα της Ελλάδας],
