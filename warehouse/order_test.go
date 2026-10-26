@@ -36,28 +36,28 @@ func TestCalculateOrder_StockAvailabilityAndStatus(t *testing.T) {
 		{
 			name: "TC_ORD_01_AllAvailable_Executable",
 			order: []warehouse.OrderItem{
-				{Barcode: "5200000000001", Quantity: 5}, 
+				{Barcode: "5200000000001", Quantity: 5},
 			},
 			wantStatus: "Executable",
 		},
 		{
 			name: "TC_ORD_02_ExactStock_Executable",
 			order: []warehouse.OrderItem{
-				{Barcode: "5200000000018", Quantity: 5}, 
+				{Barcode: "5200000000018", Quantity: 5},
 			},
 			wantStatus: "Executable",
 		},
 		{
 			name: "TC_ORD_03_StockShortByOne_Pending",
 			order: []warehouse.OrderItem{
-				{Barcode: "5200000000025", Quantity: 5}, 
+				{Barcode: "5200000000025", Quantity: 5},
 			},
 			wantStatus: "Pending",
 		},
 		{
 			name: "TC_ORD_04_NonExistentBarcode_Pending",
 			order: []warehouse.OrderItem{
-				{Barcode: "9999999999999", Quantity: 1}, 
+				{Barcode: "9999999999999", Quantity: 1},
 			},
 			wantStatus: "Pending",
 		},
@@ -88,21 +88,21 @@ func TestCalculateOrder_ShippingFeeBoundaries(t *testing.T) {
 		{
 			name: "TC_ORD_05_BelowFifty_AddsTenShipping",
 			order: []warehouse.OrderItem{
-				{Barcode: "5200000000117", Quantity: 1}, 
+				{Barcode: "5200000000117", Quantity: 1},
 			},
 			wantCost: 59.99,
 		},
 		{
 			name: "TC_ORD_06_ExactFifty_FreeShipping",
 			order: []warehouse.OrderItem{
-				{Barcode: "5200000000124", Quantity: 1}, 
+				{Barcode: "5200000000124", Quantity: 1},
 			},
 			wantCost: 50.00,
 		},
 		{
 			name: "TC_ORD_07_AboveFifty_FreeShipping",
 			order: []warehouse.OrderItem{
-				{Barcode: "5200000000131", Quantity: 1}, 
+				{Barcode: "5200000000131", Quantity: 1},
 			},
 			wantCost: 50.01,
 		},

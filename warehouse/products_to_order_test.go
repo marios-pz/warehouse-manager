@@ -62,9 +62,9 @@ func TestProductsToOrder_EmptyOrInvalidInput_ReturnsEmptySlice(t *testing.T) {
 func TestProductsToOrder_StockBoundariesAndFiltering(t *testing.T) {
 	limit := 10
 
-	pBelow := warehouse.Product{Barcode: "5200000000018", Country: "Ελλάδα", Stock: 9}  
+	pBelow := warehouse.Product{Barcode: "5200000000018", Country: "Ελλάδα", Stock: 9}
 	pEqual := warehouse.Product{Barcode: "5200000000025", Country: "Ελλάδα", Stock: 10}
-	pAbove := warehouse.Product{Barcode: "5200000000032", Country: "Ελλάδα", Stock: 11} 
+	pAbove := warehouse.Product{Barcode: "5200000000032", Country: "Ελλάδα", Stock: 11}
 	pOtherCountry := warehouse.Product{Barcode: "3001234567892", Country: "Γαλλία", Stock: 3}
 
 	allProducts := []warehouse.Product{pBelow, pEqual, pAbove, pOtherCountry}

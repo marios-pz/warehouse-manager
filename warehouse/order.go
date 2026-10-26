@@ -1,13 +1,9 @@
 package warehouse
 
-import "math"
-
-
 func CalculateOrder(stock []Product, order []OrderItem) (cost float64, status string) {
 	if len(order) == 0 {
 		return 0.0, "Executable"
 	}
-
 
 	stockMap := make(map[string]Product, len(stock))
 	for _, p := range stock {
@@ -30,7 +26,7 @@ func CalculateOrder(stock []Product, order []OrderItem) (cost float64, status st
 		}
 	}
 
-	itemsCost = math.Round(itemsCost*100) / 100
+	itemsCost = round2(itemsCost)
 
 	if itemsCost == 0.0 {
 		return 0.0, status
@@ -41,6 +37,6 @@ func CalculateOrder(stock []Product, order []OrderItem) (cost float64, status st
 		totalCost += 10.00
 	}
 
-	totalCost = math.Round(totalCost*100) / 100
+	totalCost = round2(totalCost)
 	return totalCost, status
 }

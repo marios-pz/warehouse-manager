@@ -35,9 +35,9 @@ func TestCalculateTotalCost_EmptyInput_ReturnsZero(t *testing.T) {
 }
 
 func TestCalculateTotalCost_Products_ReturnsSumOfFinalPrices(t *testing.T) {
-	book := warehouse.Product{Price: 10, Category: "Βιβλία", Discount: 10}       
-	food := warehouse.Product{Price: 10, Category: "Τρόφιμα", Discount: 10}   
-	elec := warehouse.Product{Price: 10, Category: "Ηλεκτρονικά", Discount: 10} 
+	book := warehouse.Product{Price: 10, Category: "Βιβλία", Discount: 10}
+	food := warehouse.Product{Price: 10, Category: "Τρόφιμα", Discount: 10}
+	elec := warehouse.Product{Price: 10, Category: "Ηλεκτρονικά", Discount: 10}
 
 	tests := []struct {
 		name     string
@@ -52,12 +52,12 @@ func TestCalculateTotalCost_Products_ReturnsSumOfFinalPrices(t *testing.T) {
 		{
 			name:     "TC_TOT_04_MultipleProducts",
 			products: []warehouse.Product{book, food},
-			want:     20.70, 
+			want:     20.70,
 		},
 		{
 			name:     "TC_TOT_05_SumRoundingCheck",
 			products: []warehouse.Product{elec, elec, elec},
-			want: 35.16,
+			want:     35.16,
 		},
 	}
 
