@@ -1,5 +1,10 @@
 package warehouse
 
 func CalculateTotalCost(products []Product) float64 {
-	return 0
+	totalCost := 0.0
+	for i := range products {
+		_, _, finalPrice := CalculateCost(products[i])
+		totalCost += finalPrice
+	}
+	return round2(totalCost)
 }
